@@ -1,6 +1,5 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
-apply plugin: 'jacoco'
 
 sourceCompatibility = 1.8
 version = '1.0'
@@ -39,6 +38,23 @@ uploadArchives {
            dirs 'repos'
        }
     }
+}
+
+apply plugin: 'jacoco'
+
+jacoco {
+            toolVersion "0.7.4.201502262128"
+        }
+
+        jacocoTestReport {
+            description 'Run code coverage with JaCoCo.'
+            group 'Verification'
+            reports {
+                xml.enabled = false
+                csv.enabled = false
+                html.enabled = true
+                html.destination "${buildDir}/reports/jacoco"
+            }
 }
 
 /**
