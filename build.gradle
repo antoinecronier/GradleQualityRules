@@ -50,9 +50,9 @@ jacoco {
             description 'Run code coverage with JaCoCo.'
             group 'Verification'
             reports {
-                xml.enabled = false
+                xml.enabled = true
                 csv.enabled = false
-                html.enabled = true
+                html.enabled = false
                 html.destination "${buildDir}/reports/jacoco"
             }
 }
@@ -183,8 +183,8 @@ task findbugsMain (type: FindBugs, overwrite: true) {
     excludeFilter = file("./findbugsExclude.xml")
 
     reports {
-        xml.enabled = false
-        html.enabled = true
+        xml.enabled = true
+        html.enabled = false
     }
 }
 
@@ -200,8 +200,8 @@ task findbugsTest (type: FindBugs, overwrite: true) {
     excludeFilter = file("./findbugsExclude.xml")
 
     reports {
-        xml.enabled = false
-        html.enabled = true
+        xml.enabled = true
+        html.enabled = false
     }
 }
 
@@ -246,8 +246,8 @@ task pmdTest(type: Pmd, overwrite: true) {
     exclude '**/gen/**'
 
     reports {
-        xml.enabled = false
-        html.enabled = true
+        xml.enabled = true
+        html.enabled = false
     }
 }
 
