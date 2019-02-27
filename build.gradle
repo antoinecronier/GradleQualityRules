@@ -180,7 +180,7 @@ task findbugsMain (type: FindBugs, overwrite: true) {
 
     effort = 'max'
 
-    excludeFilter = file("/findbugsExclude.xml")
+    excludeFilter = file("./findbugsExclude.xml")
 
     reports {
         xml.enabled = false
@@ -197,7 +197,7 @@ task findbugsTest (type: FindBugs, overwrite: true) {
 
     effort = 'max'
 
-    excludeFilter = file("/findbugsExclude.xml")
+    excludeFilter = file("./findbugsExclude.xml")
 
     reports {
         xml.enabled = false
