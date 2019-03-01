@@ -57,6 +57,8 @@ jacoco {
             }
 }
 
+apply plugin: 'jdepend'
+
 /**
  * Checkstyle tasks
  * Usage:
