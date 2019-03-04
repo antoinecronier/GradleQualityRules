@@ -40,6 +40,8 @@ uploadArchives {
     }
 }
 
+apply plugin: 'war'
+
 apply plugin: 'jacoco'
 
 jacoco {
