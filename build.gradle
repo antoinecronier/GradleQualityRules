@@ -16,6 +16,17 @@ jar {
     }
 }
 
+buildscript {
+  repositories {
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+  }
+  dependencies {
+    classpath "de.aaschmid:gradle-cpd-plugin:1.2"
+  }
+}
+
 repositories {
     mavenCentral()
 }
@@ -79,6 +90,25 @@ tasks.withType(FindBugs) {
         html.enabled false
     }
 }
+
+/* PMD */
+
+apply plugin: 'pmd'
+
+pmd{
+    toolVersion = "6.13.0"
+}
+
+tasks.withType(Pmd) {
+    ignoreFailures = true
+    reports {
+        xml.enabled true
+        html.enabled false
+    }
+}
+
+apply plugin: "de.aaschmid.cpd"
+
 
 task copyDeps(type: Copy) {
   from configurations.runtime
