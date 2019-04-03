@@ -109,6 +109,22 @@ tasks.withType(Pmd) {
 
 apply plugin: "de.aaschmid.cpd"
 
+/* Jacoco */
+
+apply plugin: "jacoco"
+
+jacoco {
+    toolVersion = "0.8.3"
+    //reportsDir = file("$buildDir/customJacocoReportDir")
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        csv.enabled false
+        html.destination file("${buildDir}/jacocoHtml")
+    }
+}
 
 task copyDeps(type: Copy) {
   from configurations.runtime
